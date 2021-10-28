@@ -1,8 +1,6 @@
 var getweatherbtn = document.querySelector("#x-btn");
 var outputres = document.getElementById("container");
 var apikey = "dbee732f0b3a278beaa3583e8f1c3f42";
-var city_name = document.getElementById("enterurcity").value;
-var country_name = document.getElementById("enterurcountry").value;
 var output=
 {
     temperature: " ",
@@ -16,7 +14,9 @@ function getcityandcount()
     return url+city_name+","+country_name+newLocal;
 }
 function outputweather()
-{
+{   
+    var city_name = document.getElementById("enterurcity").value;
+    var country_name = document.getElementById("enterurcountry").value;
     fetch(getcityandcount(city_name,country_name))
     .then(response=>response.json())
     .then(response=>
