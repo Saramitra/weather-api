@@ -11,13 +11,13 @@ var url="https://api.openweathermap.org/data/2.5/weather?q="
 const newLocal = "&APPID=apikey";
 function getcityandcount()
 {
+    var city_name = document.getElementById("enterurcity").value;
+    var country_name = document.getElementById("enterurcountry").value;
     return url+city_name+","+country_name+newLocal;
 }
 function outputweather()
 {   
-    var city_name = document.getElementById("enterurcity").value;
-    var country_name = document.getElementById("enterurcountry").value;
-    fetch(getcityandcount(city_name,country_name))
+    fetch(getcityandcount)
     .then(response=>response.json())
     .then(response=>
         {
