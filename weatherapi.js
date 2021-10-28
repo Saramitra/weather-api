@@ -19,17 +19,17 @@ function outputweather()
 {
     fetch(getcityandcount(city_name,country_name))
     .then(response=>response.json())
-    .then(result=>
+    .then(response=>
         {
-            if(result.message==="city not found")
+            if(response.message==="city not found")
             {
                 outputres.innerText = message;
             }
             else
             {
-                output.temperature = result.main.temp+"°F";
-                output.maxtemp = result.main.temp_max+"°F";
-                output.mintemp = result.main.temp_min+"°F";
+                output.temperature = response.main.temp+"°F";
+                output.maxtemp = response.main.temp_max+"°F";
+                output.mintemp = response.main.temp_min+"°F";
                 outputres.innerText = output.temperature +"\n"+ output.mintemp +"\n"+ output.maxtemp;
             }
         }
